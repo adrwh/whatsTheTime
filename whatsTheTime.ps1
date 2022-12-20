@@ -4,19 +4,19 @@
     Website: github.com/adrwh
 
 .SYNOPSIS
-This script gets time.
+This function gets time when you want it!.
 
 .DESCRIPTION
 USAGE
-    .\whatsTheTime.ps1 <command>
+    whatsTheTime <command>
 
 COMMANDS
-    utc         get current UTC time
-    utc[-]1-11  get the time in utc10 (AEST), or utc-5 (EST)
-    Sydney      get the time in Sydney
-    Sydney Orlando show me a table of times between Sydney and Orlando
-    Sydney Orlando14 what time will it be in Sydney when its 14:00 (2pm) in Orlando
-    help, -?    show this help message
+    -utc                                get current UTC time
+    -utcOffset [-]1-11                  get the time in utc10 (AEST), or utc-5 (EST)
+    -in Sydney                          get the time in Sydney
+    -in Sydney -when 7pm -for Orlando   get the time in Sydney when it's 7pm in Orlando
+    -showTableFor Sydney -and Orlando   show me a table of times between Sydney and Orlando
+    help, -?                            show this help message
 
 .EXAMPLE
 Sydney Orlando
