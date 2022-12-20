@@ -16,15 +16,15 @@ COMMANDS
     -in Sydney                          get the time in Sydney
     -in Sydney -when 7pm -for Orlando   get the time in Sydney when it's 7pm in Orlando
     -showTableFor Sydney -and Orlando   show me a table of times between Sydney and Orlando
-    help, -?                            show this help message
+    -help, -?                            show this help message
 
 .EXAMPLE
-Sydney Orlando
+# Get the time in Sydney when its 9am in Orlando
+whatsTheTime -in Sydney -when 9am -in Orlando
 
-Sydney  | Orlando
---------|--------
-12:00   | 14:00
-01:00   | 15:00
+.EXAMPLE
+# Show a table of times between Sydney and Orlando
+whatsTheTime -showTableWith orlando -and sydney
 #>
 
 class CitiesDic {
@@ -36,7 +36,7 @@ class CitiesDic {
       losangeles = "America/Los_Angeles"
       london     = "Europe/London"
       paris      = "Europe/Paris"
-      germany      = "Europe/Germany"
+      germany    = "Europe/Germany"
     }
   }
 }
@@ -203,9 +203,10 @@ function whatsTheTime {
       Write-Output ("[{0}]" -f ([System.DateTime]::UtcNow.AddHours($PSBoundParameters.utcOffset)).ToString("hh:mm tt"))
       break;
     }
-      
-    # { "h", "help", "?" -contains $_ } { Get-Help wt }
-    # { "hh" -contains $_ } { Get-Help wt -Examples }
+    
+    if ($PSboundParameters.help -or $PSBoundParameters."?") {
+      Get-Help $PSCommandPath -Full
+    }
   
     if ($PSBoundParameters.in -and $PSBoundParameters.Count -eq 1) {
       $sourceCityTz = getTimeZoneInfo -city $PSBoundParameters.in

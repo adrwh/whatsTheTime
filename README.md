@@ -8,7 +8,7 @@ Have you ever wanted to know what time it would be in a city when it's a specifi
 
 Well this tool is for you, right in your command line.
 
-Examples
+### Examples
 
 ```
 PS > whatsTheTime -in Sydney -when 9am -in Orlando
@@ -57,7 +57,8 @@ ORL   UTC   SYD
 3. Dot source it `. ./whatsTheTime.ps1`
 4. Now you can call the function and begin using it `whatsTheTime <command>`
 
-Put the function into your PS profile so you can run it anytime/always!
+* 👊🏼 Put the function into your PS profile so you can run it anytime/always!
+* 💥 Create an alias, call it `wt` or something instead!
 
 
 ## Please feel free to contribute
